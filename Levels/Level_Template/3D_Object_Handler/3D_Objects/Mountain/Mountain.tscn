@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/Level1/3D_Object_Handler/3D_Objects/Mountain/Mountain.glb" type="PackedScene" id=1]
+
+[node name="Mountain" type="MeshInstance"]
+
+[node name="Mountain" parent="." instance=ExtResource( 1 )]

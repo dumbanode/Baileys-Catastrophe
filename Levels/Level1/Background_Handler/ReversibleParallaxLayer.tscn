@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Levels/Level1/Background_Handler/Parallax_Background_Handler/reversibleParallaxLayer.gd" type="Script" id=1]
+[ext_resource path="res://GFX/Background/level1/mountains.png" type="Texture" id=2]
+
+[node name="ParallaxLayer2" type="ParallaxLayer"]
+visible = false
+motion_scale = Vector2( 0.004, 0.05 )
+motion_mirroring = Vector2( 2376, 0 )
+script = ExtResource( 1 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_top = -223.571
+margin_right = 1188.0
+margin_bottom = 276.429
+rect_scale = Vector2( 2.5, 2 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

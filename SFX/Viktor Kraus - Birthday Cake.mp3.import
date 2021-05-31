@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Viktor Kraus - Birthday Cake.mp3-ca49c0be636ca4018a649f00f29f5e56.mp3str"
+
+[deps]
+
+source_file="res://SFX/Viktor Kraus - Birthday Cake.mp3"
+dest_files=[ "res://.import/Viktor Kraus - Birthday Cake.mp3-ca49c0be636ca4018a649f00f29f5e56.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

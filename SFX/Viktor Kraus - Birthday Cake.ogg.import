@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Viktor Kraus - Birthday Cake.ogg-a1f4f1420a8f47deb1953dc5f72fd000.oggstr"
+
+[deps]
+
+source_file="res://SFX/Viktor Kraus - Birthday Cake.ogg"
+dest_files=[ "res://.import/Viktor Kraus - Birthday Cake.ogg-a1f4f1420a8f47deb1953dc5f72fd000.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,181 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GFX/HUD/bannerHanging.png" type="Texture" id=1]
+[ext_resource path="res://GFX/HUD/heart.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Items/coin.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/OpenSans-ExtraBold.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://GUI/GUI.gd" type="Script" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 35
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
+[node name="GUI" type="CanvasLayer" groups=[
+"GUI",
+]]
+scale = Vector2( 0.8, 0.8 )
+transform = Transform2D( 0.8, 0, 0, 0.8, 0, 0 )
+script = ExtResource( 5 )
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+margin_left = 30.0
+margin_top = 35.0
+margin_right = 268.0
+margin_bottom = 196.0
+color = Color( 1, 1, 1, 0.454902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="coinContainer" type="HBoxContainer" parent="Control"]
+margin_left = 57.2983
+margin_top = 121.874
+margin_right = 153.298
+margin_bottom = 183.874
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CoinIcon" type="TextureRect" parent="Control/coinContainer"]
+margin_right = 50.0
+margin_bottom = 67.0
+texture = ExtResource( 3 )
+
+[node name="CoinCount" type="Label" parent="Control/coinContainer"]
+margin_left = 54.0
+margin_right = 95.0
+margin_bottom = 67.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 2
+
+[node name="heartContainer" type="HBoxContainer" parent="Control"]
+margin_left = 53.5994
+margin_top = 52.8376
+margin_right = 241.599
+margin_bottom = 104.838
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeIcon3" type="TextureRect" parent="Control/heartContainer"]
+margin_right = 60.0
+margin_bottom = 52.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeIcon2" type="TextureRect" parent="Control/heartContainer"]
+margin_left = 64.0
+margin_right = 124.0
+margin_bottom = 52.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeIcon" type="TextureRect" parent="Control/heartContainer"]
+margin_left = 128.0
+margin_right = 188.0
+margin_bottom = 52.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+visible = false
+margin_left = 31.7839
+margin_top = 37.0812
+margin_right = 317.784
+margin_bottom = 96.0812
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hearts" type="Node" parent="Control/TextureRect"]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/TextureRect"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_right = -30.0
+margin_bottom = -12.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeCount" type="Label" parent="Control/TextureRect/HBoxContainer"]
+visible = false
+margin_left = 156.0
+margin_right = 244.0
+margin_bottom = 62.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 1 )
+text = "0"
+align = 2
+
+[node name="Lives" type="Control" parent="."]
+anchor_left = 1.223
+anchor_top = 1.214
+anchor_right = 1.223
+anchor_bottom = 1.214
+margin_left = -152.383
+margin_top = -108.74
+margin_right = -0.382935
+margin_bottom = 0.260132
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="Lives"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 1, 1, 1, 0.454902 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LivesLabel" type="Label" parent="Lives"]
+margin_left = 31.8568
+margin_top = 1.66852
+margin_right = 124.857
+margin_bottom = 102.669
+custom_fonts/font = SubResource( 2 )
+text = "Lives
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LivesCount" type="Label" parent="Lives"]
+margin_left = 56.1036
+margin_top = 47.1245
+margin_right = 163.104
+margin_bottom = 148.124
+custom_fonts/font = SubResource( 2 )
+text = "-1
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}

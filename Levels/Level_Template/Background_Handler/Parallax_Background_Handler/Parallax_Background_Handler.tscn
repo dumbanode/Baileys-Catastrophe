@@ -1,0 +1,183 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://GFX/Background/level1/hillClosest.png" type="Texture" id=1]
+[ext_resource path="res://GFX/Background/bg_layer3.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Background/bg_layer4.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Background/bg_layer1.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Background/Default_Texture.jpg" type="Texture" id=5]
+[ext_resource path="res://Shaders/Pixelize.gd" type="Script" id=6]
+[ext_resource path="res://icon.png" type="Texture" id=7]
+[ext_resource path="res://Levels/Level1/Background_Handler/Parallax_Background_Handler/Render_Target.gd" type="Script" id=8]
+[ext_resource path="res://Shaders/steam.shader" type="Shader" id=9]
+[ext_resource path="res://Shaders/pixelize.shader" type="Shader" id=10]
+[ext_resource path="res://Levels/Level1/Background_Handler/ReversibleParallaxLayer.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/Level1/Background_Handler/Parallax_Background_Handler/Parallax_Background_Handler.gd" type="Script" id=12]
+[ext_resource path="res://Levels/Level1/Background_Handler/Parallax_Background_Handler/reversibleParallaxLayer.gd" type="Script" id=13]
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 9 )
+shader_param/color = Vector3( 0.78, 0.84, 0.94 )
+shader_param/OCTAVES = 4
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 10 )
+shader_param/size_x = 0.015625
+shader_param/size_y = 0.015625
+shader_param/SCREEN_RESOLUTION = 8.0
+
+[node name="Parallax_Background_Handler" type="ParallaxBackground"]
+scroll_base_offset = Vector2( 0, -900 )
+scroll_ignore_camera_zoom = true
+script = ExtResource( 12 )
+
+[node name="ParallaxLayer0" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 2000, 2000 )
+script = ExtResource( 13 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer0"]
+modulate = Color( 0.145098, 0.0235294, 0.309804, 1 )
+margin_right = 40.0
+margin_bottom = 40.0
+rect_scale = Vector2( 10, 1 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ReversibleParallaxLayer" parent="." instance=ExtResource( 11 )]
+visible = true
+motion_scale = Vector2( 0.009, 0.05 )
+
+[node name="ReversibleParallaxLayer2" parent="." instance=ExtResource( 11 )]
+visible = true
+motion_scale = Vector2( 0.05, 0.03 )
+
+[node name="TextureRect" parent="ReversibleParallaxLayer2" index="0"]
+modulate = Color( 0.0392157, 0.505882, 0.188235, 1 )
+texture = ExtResource( 1 )
+
+[node name="ParallaxLayer6" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.1, 0.05 )
+motion_mirroring = Vector2( 2376, 0 )
+script = ExtResource( 13 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer6"]
+modulate = Color( 0.133333, 0.639216, 0.0313726, 1 )
+margin_top = 33.4836
+margin_right = 1188.0
+margin_bottom = 533.484
+rect_scale = Vector2( 2.5, 2 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="3D_Render_Layer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0, 0.05 )
+
+[node name="Render_Target" type="TextureRect" parent="3D_Render_Layer"]
+margin_left = -1000.0
+margin_top = -1500.0
+margin_right = 2000.0
+margin_bottom = 1500.0
+texture = ExtResource( 5 )
+stretch_mode = 1
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="icon" type="Sprite" parent="3D_Render_Layer"]
+modulate = Color( 1, 1, 1, 0.235294 )
+material = SubResource( 1 )
+position = Vector2( 841.186, 71.8699 )
+scale = Vector2( 222.214, 71.0844 )
+texture = ExtResource( 7 )
+
+[node name="Shaders" type="Control" parent="3D_Render_Layer"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1000.0
+margin_top = -1500.0
+margin_right = 2000.0
+margin_bottom = 1500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pixelize" type="TextureRect" parent="3D_Render_Layer/Shaders"]
+show_behind_parent = true
+material = SubResource( 2 )
+margin_right = 3000.0
+margin_bottom = 3000.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Colourize" type="TextureRect" parent="3D_Render_Layer/Shaders"]
+visible = false
+margin_right = 3000.0
+margin_bottom = 3000.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.35, 0.05 )
+motion_mirroring = Vector2( 2376, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer5"]
+margin_top = 144.41
+margin_right = 1188.0
+margin_bottom = 644.41
+rect_scale = Vector2( 2.5, 2 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+visible = false
+motion_scale = Vector2( 0.5, 1 )
+motion_mirroring = Vector2( 2048, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer3"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.1, 1 )
+motion_mirroring = Vector2( 0.75, 0 )
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxLayer4"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[editable path="ReversibleParallaxLayer2"]
