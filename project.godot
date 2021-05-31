@@ -10,12 +10,11 @@ config_version=4
 
 _global_script_classes=[  ]
 _global_script_class_icons={
-
 }
 
 [application]
 
-config/name="485 Baby Game"
+config/name="Bailey's Catastrophe"
 run/main_scene="res://Levels/Menus/Title_Screen.tscn"
 boot_splash/image="res://GFX/gameStudioLogo.png"
 boot_splash/fullsize=false
